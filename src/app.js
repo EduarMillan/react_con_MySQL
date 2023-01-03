@@ -1,8 +1,10 @@
-import express from "express";
+import express, { json } from "express";
 import taskRoutes from './routes/tasks'
 
 const app = express();
 
-app.use(taskRoutes)
+app.use(express.json());
 
-export default app
+app.use(taskRoutes);
+
+export default app;

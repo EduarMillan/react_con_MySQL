@@ -110,15 +110,83 @@ var getTaskCount = /*#__PURE__*/function () {
   };
 }();
 exports.getTaskCount = getTaskCount;
-var saveTask = function saveTask(req, res) {
-  res.send("Hello world");
-};
+var saveTask = /*#__PURE__*/function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(req, res) {
+    var result;
+    return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            _context4.next = 2;
+            return (0, _database.connect)();
+          case 2:
+            _context4.next = 4;
+            return _context4.sent.query("INSERT INTO tasks (title, description) VALUES (?, ?)", [req.body.title, req.body.description]);
+          case 4:
+            result = _context4.sent;
+            console.log(result);
+          case 6:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, _callee4);
+  }));
+  return function saveTask(_x7, _x8) {
+    return _ref4.apply(this, arguments);
+  };
+}();
 exports.saveTask = saveTask;
-var deleteTask = function deleteTask(req, res) {
-  res.send("Hello world");
-};
+var deleteTask = /*#__PURE__*/function () {
+  var _ref5 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5(req, res) {
+    return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+            _context5.next = 2;
+            return (0, _database.connect)();
+          case 2:
+            _context5.next = 4;
+            return _context5.sent.query("DELETE FROM tasks WHERE id =?", [req.params.id]);
+          case 4:
+            res.sendStatus(204);
+          case 5:
+          case "end":
+            return _context5.stop();
+        }
+      }
+    }, _callee5);
+  }));
+  return function deleteTask(_x9, _x10) {
+    return _ref5.apply(this, arguments);
+  };
+}();
 exports.deleteTask = deleteTask;
-var updateTask = function updateTask(req, res) {
-  res.send("Hello world");
-};
+var updateTask = /*#__PURE__*/function () {
+  var _ref6 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6(req, res) {
+    var result;
+    return _regeneratorRuntime().wrap(function _callee6$(_context6) {
+      while (1) {
+        switch (_context6.prev = _context6.next) {
+          case 0:
+            _context6.next = 2;
+            return (0, _database.connect)();
+          case 2:
+            _context6.next = 4;
+            return _context6.sent.query("UPDATE tasks SET ? WHERE id=?", [req.body, req.params.id]);
+          case 4:
+            result = _context6.sent;
+            console.log(result);
+            res.sendStatus(204);
+          case 7:
+          case "end":
+            return _context6.stop();
+        }
+      }
+    }, _callee6);
+  }));
+  return function updateTask(_x11, _x12) {
+    return _ref6.apply(this, arguments);
+  };
+}();
 exports.updateTask = updateTask;

@@ -25,14 +25,27 @@ export const getTaskCount = async (req, res) => {
   res.json(row[0]["COUNT(*)"]);
 };
 
-export const saveTask = (req, res) => {
-  res.send("Hello world");
+export const saveTask = async (req, res) => {
+  const result = await (
+    await connect()
+  ).query("INSERT INTO tasks (title, description) VALUES (?, ?)", [
+    req.body.title,
+    req.body.description,
+  ]);
+  console.log(result);
 };
 
-export const deleteTask = (req, res) => {
-  res.send("Hello world");
+export const deleteTask = async (req, res) => {
+  await (
+    await connect()
+  ).query("DELETE FROM tasks WHERE id =?", [req.params.id]);
+  res.sendStatus(204);
 };
 
-export const updateTask = (req, res) => {
-  res.send("Hello world");
+export const updateTask = async (req, res) => {
+  const result = await (
+    await connect()
+  ).query("UPDATE tasks SET ? WHERE id=?", [req.body, req.params.id]);
+  console.log(result);
+  res.sendStatus(204);
 };
