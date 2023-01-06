@@ -1,0 +1,45 @@
+@api = http://localhost:3000/materiales
+
+GET {{api}}
+
+###
+GET {{api}}/1
+
+###
+GET {{api}}/count
+
+###
+POST {{api}}
+Content-Type: application/json
+
+{
+"nombre":"vinilo",
+"descripcion":"vinilo de impresion blanco",
+"espesor":"1mm",
+"longitud_ancho":"1.35",
+"longitud_largo":"50",
+"calidad_material":"1",
+"costo_total":"197",
+"costo_m2":"1",
+"costo_ml":"1",
+"cantidad":"2"
+}
+
+###
+DELETE {{api}}/3
+
+###
+PUT {{api}}/3
+Content-Type: application/json
+
+{
+"nombre":"Acrilico",
+"descripcion":"Acrilico de 5mm trasnparente",
+"espesor":"5mm",
+"longitud_ancho":"1.22",
+"longitud_largo":"2.44",
+"calidad_material":"1",
+"costo_total":"120",
+"costo_m2":"40.4",
+"costo_ml":"49.1"
+}
