@@ -9,13 +9,15 @@ import { options } from "./swaggerOptions";
 const specs = swaggerJSDoc(options);
 
 import MaterialesRoutes from './routes/materiales';
+import OrdenesRoutes from './routes/ordenes';
 
 const app = express();
 app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
 
-app.use(MaterialesRoutes);
+//app.use(MaterialesRoutes);
+app.use(OrdenesRoutes, MaterialesRoutes);
 
 app.use("/docs", swaggerUI.serve, swaggerUI.setup(specs));
 

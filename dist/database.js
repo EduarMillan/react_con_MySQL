@@ -4,7 +4,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.connect = void 0;
+exports.connect2 = exports.connect = void 0;
 var _promise = _interopRequireDefault(require("mysql2/promise"));
 var _config = require("./config");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -35,3 +35,27 @@ var connect = /*#__PURE__*/function () {
   };
 }();
 exports.connect = connect;
+var connect2 = /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+    var conn;
+    return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.next = 2;
+            return _promise["default"].createConnection(_config.config2);
+          case 2:
+            conn = _context2.sent;
+            return _context2.abrupt("return", conn);
+          case 4:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+  return function connect2() {
+    return _ref2.apply(this, arguments);
+  };
+}();
+exports.connect2 = connect2;

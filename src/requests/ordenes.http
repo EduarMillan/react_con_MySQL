@@ -1,0 +1,57 @@
+@api = http://localhost:3000/trabajosrealizados
+
+GET {{api}}
+
+###
+GET {{api}}/1
+
+###
+GET {{api}}/count
+
+###
+POST {{api}}
+Content-Type: application/json
+
+{  
+"id_orden": "1",
+"nombre_material":"ACRILICO", 
+"descripcion_material":"Acrilico de 3mm", 
+"medida_largo":"1", 
+"medida_ancho":"1", 
+"precio_largo":"32", 
+"precio_m2":"25", 
+"precio_total":"25",
+
+"nombre":"Museo de la Revolucion2",
+"descripcion":"realizacion de sala historica en el museo de la revolucion2",
+"precio":"10000",
+"fecha":"2023-01-10",
+"otros_gastos_descripcion":"Pago a carpinteros",
+"costo_otros_gastos":"50",
+"impuesto_representacion":"1",
+"impuesto_onat":"1",
+"impuesto_equipos":"1",
+"costo_total":"1000",
+"utilidad":"1"
+}
+
+###
+DELETE {{api}}/8
+
+###
+PUT {{api}}/9
+Content-Type: application/json
+
+{
+"nombre":"Museo cubano2",
+"descripcion":"realizacion de sala historica2",
+"precio":"100002",
+"fecha":"2023-01-12",
+"otros_gastos_descripcion":"Pago a carpinteros2",
+"costo_otros_gastos":"502",
+"impuesto_representacion":"2",
+"impuesto_onat":"2",
+"impuesto_equipos":"2",
+"costo_total":"10002",
+"utilidad":"100002"
+}

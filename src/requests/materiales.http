@@ -29,17 +29,17 @@ Content-Type: application/json
 DELETE {{api}}/3
 
 ###
-PUT {{api}}/3
+PUT {{api}}/24
 Content-Type: application/json
 
 {
-"nombre":"Acrilico",
+"nombre":"probando datos de costos",
 "descripcion":"Acrilico de 5mm trasnparente",
 "espesor":"5mm",
 "longitud_ancho":"1.22",
 "longitud_largo":"2.44",
 "calidad_material":"1",
 "costo_total":"120",
-"costo_m2":"40.4",
+"costo_m2":"45.4",
 "costo_ml":"49.1"
 }
