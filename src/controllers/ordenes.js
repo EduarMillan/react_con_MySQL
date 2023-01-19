@@ -1,4 +1,5 @@
-import { connect2 } from "../database";
+import { connect2, connect } from "../database";
+import {Precio_m2_material} from "./materiales.js"
 
 export const getOrdenes = async (req, res) => {
   const [row] = await (await connect2()).query("SELECT * FROM trabajosrealizados");
@@ -31,7 +32,25 @@ export const saveOrdenes = async (req, res) => {
   ).query(
      "SELECT MAX(id) AS id FROM trabajosrealizados"
     );
-  console.log(rs[0].id);
+
+    var nombre_material = req.body.nombre_material;
+
+    const [promedio_m2] = await (
+      await connect()
+    ).query("SELECT AVG (costo_m2) FROM materiales WHERE nombre = ?",
+    [
+      nombre_material
+    ]);
+    var prom_m2 = (promedio_m2[0]['AVG (costo_m2)']);
+
+    const [promedio_ml] = await (
+      await connect()
+    ).query("SELECT AVG(costo_ml) FROM materiales WHERE nombre = ?",
+    [
+      nombre_material
+    ]);
+    var prom_ml = (promedio_ml[0]['AVG(costo_ml)']);
+    console.log(prom_ml)
 
   await (
     await connect2()
@@ -43,9 +62,9 @@ export const saveOrdenes = async (req, res) => {
       req.body.descripcion_material,
       req.body.medida_largo,
       req.body.medida_ancho,
-      req.body.precio_largo,
-      req.body.precio_m2,
-      req.body.precio_total 
+      prom_ml,
+      prom_m2,
+      (req.body.medida_largo*req.body.medida_ancho*prom_m2) 
     ]
 );
 
@@ -72,6 +91,7 @@ export const saveOrdenes = async (req, res) => {
       ]
       
     );
+    
 };
 
 export const deleteOrden = async (req, res) => {

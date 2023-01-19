@@ -64,3 +64,11 @@ export const updateMaterial = async (req, res) => {
   ).query("UPDATE materiales SET ? WHERE id=?", [req.body, req.params.id]);
   res.sendStatus(204);
 };
+
+export const Precio_m2_material = async (nombreMaterial) => {
+  const promedio = await (
+    await connect()
+  ).query("SELECT AVG (costo_m2) FROM materiales WHERE nombre=?"[nombreMaterial]);
+  console.log(promedio);
+  
+};

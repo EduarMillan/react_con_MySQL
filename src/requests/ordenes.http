@@ -14,8 +14,8 @@ Content-Type: application/json
 
 {  
 "id_orden": "1",
-"nombre_material":"ACRILICO", 
-"descripcion_material":"Acrilico de 3mm", 
+"nombre_material":"bicapa", 
+"descripcion_material":"bicapa de 1mm", 
 "medida_largo":"1", 
 "medida_ancho":"1", 
 "precio_largo":"32", 

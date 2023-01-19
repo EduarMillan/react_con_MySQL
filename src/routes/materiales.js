@@ -6,6 +6,7 @@ import {
   getMateriales,
   saveMateriales,
   updateMaterial,
+  Precio_m2_material,
 } from "../controllers/materiales";
 
 const router = Router();
@@ -57,5 +58,7 @@ router.delete("/materiales/:id", deleteMaterial);
  *    summary: Actualiza un material existentes en la base de datos usando un id
  */
 router.put("/materiales/:id", updateMaterial);
+
+
 
 export default router;
